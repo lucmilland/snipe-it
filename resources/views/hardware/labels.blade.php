@@ -42,11 +42,13 @@
     page-break-after:always;
   }
 
+   div.logo {
+    padding: .02in;
+  }
     div.logo,
     div.qr_img {
-    width: {{ $qr_size }}in;
     height: {{ $qr_size }}in;
-    float: left;
+    float: right;
     display: inline-block;
     padding-right: .02in;
   }
@@ -62,15 +64,16 @@
   }
 
  .qr_text {
-    width: {{ $qr_txt_size }}in;
+    /*width: {{ $qr_txt_size }}in;*/
     height: {{ $qr_size }}in;
     padding-top: .01in;
     font-family: arial, helvetica, sans-serif;
-    padding-right: .01in;
+    text-align: right;
     overflow: hidden !important;
     display: inline-block;
     word-wrap: break-word;
     word-break: break-all;
+    float: right;
   }
 
   div.barcode_container {
@@ -124,28 +127,28 @@
       
     <div class="qr_text">
         @if ($settings->qr_text!='')
-        <div class="pull-left">
+        <div class="pull-right">
             <strong>{{ $settings->qr_text }}</strong>
             <br>
         </div>
         @endif
         @if (($settings->labels_display_company_name=='1') && ($asset->company))
-        <div class="pull-left">
+        <div class="pull-right">
         	C: {{ $asset->company->name }}
         </div>
         @endif
         @if (($settings->labels_display_name=='1') && ($asset->name!=''))
-        <div class="pull-left">
+        <div class="pull-right">
             N: {{ $asset->name }}
         </div>
         @endif
         @if (($settings->labels_display_tag=='1') && ($asset->asset_tag!=''))
-        <div class="pull-left">
+        <div class="pull-right">
             T: {{ $asset->asset_tag }}
         </div>
         @endif
         @if (($settings->labels_display_serial=='1') && ($asset->serial!=''))
-        <div class="pull-left">
+        <div class="pull-right">
             S: {{ $asset->serial }}
         </div>
         @endif
