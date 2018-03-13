@@ -112,7 +112,7 @@
 	<?php $count++; ?>
   <div class="label"{!!  ($count % $settings->labels_per_page == 0) ? ' style="margin-bottom: 0px;"' : '' !!}>
 
-      @if (($settings->labels_display_company_logo=='1') && ($asset->company->image))
+      @if (($settings->labels_display_company_logo=='1') && ($asset->company) && ($asset->company->image))
     <div class="qr_img">
             <img src="{{ url('/') }}/uploads/companies/{{ $asset->company->image }}" class="qr_img" />
     </div>
